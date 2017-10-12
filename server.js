@@ -15,11 +15,11 @@ connection.on('connected', () =>{
 connection.on('error', () =>{
     console.log('MongoDB Error:', err)
 })
-
+app.use(express.static(`${__dirname}/client/build`))
 app.use(bodyParser.json())
 
 app.get('/', (req, res)=>{
-    res.send('Hello World!')
+   res.sendFile(`${__dirname}/client/build/index.html`)
 })
 
 
